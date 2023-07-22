@@ -6,9 +6,23 @@
 }
 
 .itemContainer {
+  display: flex;
   flex: 1;
   flex-direction: column;
   gap: 50px;
+}
+
+.title {
+  font-size: 70px;
+  background: linear-gradient(to bottom, #194c33, #bbb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: 24px;
+  font-weight: 300;
 }
 
 .img {
