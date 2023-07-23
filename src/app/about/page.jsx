@@ -25,7 +25,7 @@ const About = () => {
         </div>
         <div className={styles.items}>
           <h1 className={styles.title}>Who I do?</h1>
-          <p className={styles.description}>I will write my description later.</p>
+          <p className={styles.description}>I will write my description later.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt similique autem voluptatum atque, unde officia corrupti quisquam eius exercitationem distinctio laboriosam, expedita dolorum? Rem atque saepe eaque dolores provident ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugiat illum omnis quod corrupti praesentium consequatur voluptatibus, consequuntur quae veritatis fugit magni quis id enim minus mollitia labore explicabo! Corrupti? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione amet voluptatibus optio quia dolorem animi alias dolorum quisquam, ex commodi nemo obcaecati possimus soluta sed adipisci! Officiis impedit officia ipsam!</p>
           <Button text={'Contact me'} url={'/contact'} />
         </div>
       </div>
