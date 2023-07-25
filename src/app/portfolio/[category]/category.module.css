@@ -9,12 +9,32 @@
     margin-bottom: 100px;
 }
 
+.items:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
 .textContainer {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.heading {
+    font-size: 50px;
+}
+
+.description {
+    font-size: 20px;
 }
 
 .imageContainer {
     flex: 1;
-    height: 500px;
+    height: 400px;
     position: relative;
+}
+
+.image {
+    border-radius: 5px;
 }
