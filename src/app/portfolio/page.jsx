@@ -1,7 +1,7 @@
 import React from 'react'
+import Link from 'next/link'
 
 import styles from './portfolio.module.css'
-import Link from 'next/link'
 
 const Portfolio = () => {
   return (
