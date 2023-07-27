@@ -1,44 +1,48 @@
 import React from 'react'
 import Image from 'next/image'
+import {notFound} from 'next/navigation'
 
 import styles from './category.module.css'
 import Button from '@/components/ui/button/Button'
+import { items } from './data'
+
+const getData = (cat) => {
+  const data = items[cat]
+
+  if(data) {
+    return data
+  }
+
+  return notFound()
+}
 
 const Category = ({params}) => {
 
   const category = params.category[0].toUpperCase() + params.category.slice(1)
 
+  const data = getData(params.category)
+
   return (
     <div className={styles.container}>
       <h1 className={styles.categoryTitle}>{category}</h1>
-      <div className={styles.items}>
-        <div className={styles.textContainer}>
-          <h1 className={styles.heading}>Heading</h1>
-          <p className={styles.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iusto, fugit id perspiciatis distinctio officiis nisi quae, vitae repellendus, libero cupiditate laborum qui minima numquam molestias eius consequuntur. Vero quisquam quam error omnis deserunt aut ratione sed possimus hic expedita.</p>
-          <Button url='#' text='See More' />
-        </div>
-        <div className={styles.imageContainer}>
-          <Image
-            className={styles.image}
-            src='https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg'
-            alt='Image'
-            fill={true} />
-        </div>
-      </div>
-      <div className={styles.items}>
-        <div className={styles.textContainer}>
-          <h1 className={styles.heading}>Heading</h1>
-          <p className={styles.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iusto, fugit id perspiciatis distinctio officiis nisi quae, vitae repellendus, libero cupiditate laborum qui minima numquam molestias eius consequuntur. Vero quisquam quam error omnis deserunt aut ratione sed possimus hic expedita.</p>
-          <Button url='#' text='See More' />
-        </div>
-        <div className={styles.imageContainer}>
-          <Image
-            className={styles.image}
-            src='https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg'
-            alt='Image'
-            fill={true} />
-        </div>
-      </div>
+
+      {data.map(item => {
+        return (<div className={styles.items} key={item.id}>
+          <div className={styles.textContainer}>
+            <h1 className={styles.heading}>{item.title}</h1>
+            <p className={styles.description}>{item.desc}</p>
+            <Button url='#' text='See More' />
+          </div>
+          <div className={styles.imageContainer}>
+            <Image
+              className={styles.image}
+              src={item.image}
+              alt='Image'
+              fill={true} />
+          </div>
+        </div>)
+      })}
+      
     </div>
   )
 }
