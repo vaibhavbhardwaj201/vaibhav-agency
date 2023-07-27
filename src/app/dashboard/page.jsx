@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from 'react'
 
-import useSWR from 'swr'
 import styles from './dashboard.module.css'
+
+import useSWR from 'swr'
 
 const Dashboard = () => {
 
@@ -35,9 +36,6 @@ const Dashboard = () => {
 
 
   const { data, error, isLoading } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
-
-
-  console.log(data);
 
   return (
     <div className={styles.container}>Dashboard</div>

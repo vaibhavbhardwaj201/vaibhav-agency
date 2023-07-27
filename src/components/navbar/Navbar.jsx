@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-import { links } from '@/utils/navbarData'
+import { links } from '@/components/navbar/navbarData'
 import styles from './navbar.module.css'
 import DarkModeToggle from '../darkmode/DarkModeToggle'
 
