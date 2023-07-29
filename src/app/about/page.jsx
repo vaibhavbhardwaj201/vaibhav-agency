@@ -4,6 +4,11 @@ import Image from 'next/image'
 import styles from './about.module.css'
 import Button from '@/components/ui/button/Button'
 
+export const metadata = {
+  title: 'About VebShen',
+  description: 'About VebShen Blogging site',
+}
+
 const About = () => {
   return (
     <div className={styles.container}>

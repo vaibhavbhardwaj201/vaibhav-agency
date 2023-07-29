@@ -1,7 +1,8 @@
 import React from "react";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import styles from "./blogpostid.module.css";
-import Image from "next/image";
 
 const getData = async (id) => {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
@@ -9,14 +10,24 @@ const getData = async (id) => {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to load Blog");
+    return notFound()
   }
   return res.json();
 };
 
-const BlogPost = async ({ params }) => {
-  const { id } = params;
+export async function generateMetadata({params}) {
+  
+  const post = await getData(params.id)
+  return {
+    title: `${post.title} | ${post.username}`,
+    description: post.description,
+  }
 
+}
+
+const BlogPost = async ({ params }) => {
+  
+  const { id } = params;
   const data = await getData(id);
 
   return <div className={styles.container}>

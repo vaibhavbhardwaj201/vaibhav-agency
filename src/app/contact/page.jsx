@@ -4,6 +4,11 @@ import Image from 'next/image'
 import styles from './contact.module.css'
 import Button from '@/components/ui/button/Button'
 
+export const metadata = {
+  title: 'VebShen | Contact Us',
+  description: 'Contact us now',
+}
+
 const Contact = () => {
   return (
     <div className={styles.container}>

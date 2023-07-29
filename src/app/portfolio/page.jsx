@@ -3,6 +3,11 @@ import Link from 'next/link'
 
 import styles from './portfolio.module.css'
 
+export const metadata = {
+  title: 'VebShen Portfolio',
+  description: 'VebShen Portfolio, you can check it out',
+}
+
 const Portfolio = () => {
   return (
     <div className={styles.container}>

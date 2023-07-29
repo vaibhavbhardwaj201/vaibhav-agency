@@ -1,8 +1,13 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from "react"
+import Link from "next/link"
+import Image from "next/image"
 
-import styles from "./blog.module.css";
+import styles from "./blog.module.css"
+
+export const metadata = {
+  title: 'VebShen\'s Blogs',
+  description: 'Blogs you can search on',
+}
 
 const getData = async () => {
   const res = await fetch("http://localhost:3000/api/posts", {
@@ -12,7 +17,6 @@ const getData = async () => {
   if (!res.ok) {
     throw new Error("Failed to load Blog");
   }
-  console.log(res);
   return res.json();
 };
 
