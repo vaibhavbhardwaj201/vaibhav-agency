@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+}
+
+.input {
+    padding: 20px;
+    background-color: transparent;
+    color: #bbb;
+    border: 2px solid #bbb;
+    border-radius: 10px;
+}
+
+.button {
+    padding: 20px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #53c28b;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.button:hover {
+    background-color: #339e68;
+}
+
+.loginText {
+    text-align: end;
+}
+
+.text {
+    font-weight: 600;
+}
