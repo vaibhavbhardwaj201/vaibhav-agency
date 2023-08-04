@@ -13,6 +13,7 @@ export const GET = async (req) => {
     try {
         await connect()
         const posts = await Posts.find(username && {username})
+        console.log(posts);
         return new NextResponse(JSON.stringify(posts), {status: 200})
     } catch (error) {
         console.log("Consoling error", error);

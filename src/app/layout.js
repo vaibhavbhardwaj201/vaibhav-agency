@@ -4,7 +4,6 @@ import Footer from "@/components/footer/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 import { Inter } from "next/font/google";
-import { SessionProvider } from "next-auth/react";
 import AuthProvider from "@/components/authprovider/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
