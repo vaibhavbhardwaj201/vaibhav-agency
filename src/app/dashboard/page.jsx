@@ -7,6 +7,7 @@ import styles from './dashboard.module.css'
 import useSWR from 'swr'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 const Dashboard = () => {
 
@@ -56,7 +57,26 @@ const Dashboard = () => {
 
   if (session.status === "authenticated") {
     return (
-      <div className={styles.container}>Dashboard</div>
+      <div className={styles.container}>
+        <div className={styles.posts}>
+           {
+            data ?
+            data?.map(post => (
+              <div className={styles.post} key={post._id}>
+                <div className={styles.imageContainer}>
+                  <Image src={post.image} width={200} height={150} />
+                </div>
+                <h2 className={styles.postTitle}>{post.title}</h2>
+                <span className={styles.deleteBtn}>X</span>
+              </div>
+            ))
+            : 
+            <h2>You don't have any blog to show</h2>
+           
+           }
+        </div>
+        <form className={styles.createPosts}></form>
+      </div>
       )
     }
 }
