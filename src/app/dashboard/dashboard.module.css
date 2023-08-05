@@ -1,3 +1,64 @@
 .container {
-    
+    display: flex;
+    gap: 100px;
+}
+
+.posts {
+    flex: 1;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+.imageContainer {
+    width: 200;
+    height: 150px;
+    position: relative;
+}
+
+.image {
+    object-fit: cover;
+}
+
+.deleteBtn {
+    cursor: pointer;
+    color: red;
+}
+
+.createPosts {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input, .textarea {
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid #bbb;
+    outline: none;
+    border-radius: 3px;
+    color: #bbb;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn {
+    padding: 20px;
+    cursor: pointer;
+    width: max-content;
+    background-color: #53c28b;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: large;
+}
+
+.btn:hover {
+    background-color: #339e68;
 }

@@ -48,6 +48,8 @@ const Login = () => {
           required
         />
         <button className={styles.button}>Login</button>
+        <hr />
+        <button onClick={() => signIn("google")}>Login with Google</button>
       </form>
       <p className={styles.loginText}>
         Don't have an Account?{" "}

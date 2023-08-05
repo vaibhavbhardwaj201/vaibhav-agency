@@ -20,3 +20,21 @@ export const GET = async (req, {params}) => {
     }
 
 }
+
+// DELETE endpoint for api call
+
+export const DELETE = async (req, {params}) => {
+    //fetch
+
+    const {id} = params
+
+    try {
+        await connect()
+        await Posts.findByIdAndDelete(id)
+        return new NextResponse("Post has been Deleted", {status: 200})
+    } catch (error) {
+        console.log("Consoling error", error);
+        return new NextResponse("Database Error", {status: 500})
+    }
+
+}

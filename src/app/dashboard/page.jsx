@@ -8,6 +8,7 @@ import useSWR from 'swr'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { DELETE } from '../api/posts/[id]/route'
 
 const Dashboard = () => {
 
@@ -43,9 +44,46 @@ const Dashboard = () => {
   const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 
-  const { data, error, isLoading } = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher)
+  const { data, mutate, error, isLoading } = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher)
 
-  console.log(data);
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const title = e.target.title.value
+    const description = e.target.description.value
+    const image = e.target.image.value
+    const content = e.target.content.value
+
+    const body = {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        description,
+        image,
+        username: session?.data?.user?.name,
+        content
+      })
+    }
+
+    try {
+      await fetch('/api/posts', body)
+      mutate()
+      e.target.reset()
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`/api/posts/${id}`, {
+        method: "DELETE"
+      })
+      mutate()
+    } catch (error) {
+      
+    }
+  }
 
   if (session.status === "loading") {
     return <p>Loading...</p>
@@ -64,10 +102,10 @@ const Dashboard = () => {
             data?.map(post => (
               <div className={styles.post} key={post._id}>
                 <div className={styles.imageContainer}>
-                  <Image src={post.image} width={200} height={150} />
+                  <Image src={post.image} width={200} height={150} alt='Blog image' className={styles.image} />
                 </div>
                 <h2 className={styles.postTitle}>{post.title}</h2>
-                <span className={styles.deleteBtn}>X</span>
+                <span className={styles.deleteBtn} onClick={() => handleDelete(post._id)}>X</span>
               </div>
             ))
             : 
@@ -75,7 +113,14 @@ const Dashboard = () => {
            
            }
         </div>
-        <form className={styles.createPosts}></form>
+        <form className={styles.createPosts} onSubmit={handleSubmit}>
+          <h1>Add new Post</h1>
+          <input type="text" name='title' placeholder='Title' className={styles.input} />
+          <input type="text" name='description' placeholder='Description' className={styles.input} />
+          <input type="text" name='image' placeholder='Image URL' className={styles.input} />
+          <textarea placeholder='Your Blog here' name='content' className={styles.textarea} cols="30" rows="10"></textarea>
+          <button className={styles.btn}>Upload</button>
+        </form>
       </div>
       )
     }
