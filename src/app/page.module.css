@@ -40,3 +40,28 @@
     transform: translateY(10px);
   }
 }
+
+@media only screen and (max-width: 888px) {
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .title {
+    font-size: 50px;
+  }
+  .description {
+    font-size: 20px;
+  }
+    .img {
+      height: 450px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+  .img {
+    height: 300px;
+  }
+}

@@ -33,6 +33,7 @@ const Navbar = () => {
         </button>)
         }
       </div>
+        <div className={styles.hamburger}>X</div>
     </div>
   )
 }

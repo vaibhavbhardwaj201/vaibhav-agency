@@ -33,3 +33,18 @@
 .logoutbtn:hover {
     background-color: #339e68;
 }
+
+.hamburger {
+    display: none;
+}
+
+/* Media quaries for responsiveness */
+
+@media only screen and (max-width: 888px) {
+    .links {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+}
