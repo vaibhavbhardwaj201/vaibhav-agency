@@ -52,7 +52,7 @@ const Login = () => {
         <button onClick={() => signIn("google")}>Login with Google</button>
       </form>
       <p className={styles.loginText}>
-        Don't have an Account?{" "}
+        Don&apos;t have an Account?{" "}
         <Link href="/dashboard/register">
           <span className={styles.text}>Register</span>
         </Link>

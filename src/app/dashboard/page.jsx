@@ -109,7 +109,7 @@ const Dashboard = () => {
               </div>
             ))
             : 
-            <h2>You don't have any blog to show</h2>
+            <h2>You don&apos;t have any blog to show</h2>
            
            }
         </div>
