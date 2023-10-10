@@ -1,7 +1,7 @@
 "use client"
 
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 
 import { links } from '@/components/navbar/navbarData'
 import styles from './navbar.module.css'
@@ -25,15 +25,15 @@ const Navbar = () => {
         ))}
 
         {
-          session.status === "authenticated" && 
-        (<button className={styles.logoutbtn}
-        onClick={signOut}
-        >
-          Logout
-        </button>)
+          session.status === "authenticated" &&
+          (<button className={styles.logoutbtn}
+            onClick={signOut}
+          >
+            Logout
+          </button>)
         }
       </div>
-        <div className={styles.hamburger}>X</div>
+      <div className={styles.hamburger}>X</div>
     </div>
   )
 }
