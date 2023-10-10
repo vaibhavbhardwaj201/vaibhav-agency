@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
 import styles from "./blogpostid.module.css";
+import { NextResponse } from "next/server";
 
 const getData = async (id) => {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
@@ -10,7 +10,9 @@ const getData = async (id) => {
   });
 
   if (!res.ok) {
-    return notFound()
+    return NextResponse.json({
+      message: 'Error'
+    })
   }
   return res.json();
 };
